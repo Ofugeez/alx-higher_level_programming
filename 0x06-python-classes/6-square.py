@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#/usr/bin/python3
 """Square generation module for Python project 0x06
 """
 
