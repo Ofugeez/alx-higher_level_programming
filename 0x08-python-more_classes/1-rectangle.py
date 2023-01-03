@@ -19,7 +19,6 @@ class Rectangle:
     @property
     def width(self):
         """Getter function of width
-        
         Returns:
             int -- width fo the rectangle
         """
