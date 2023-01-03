@@ -1,65 +1,104 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""""This module create a rectangle"""
 
 
 class Rectangle:
-    """Represent a rectangle."""
-
+    """
+    class that generate a rectangle
+    """
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
-        Args:
-            width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
+        """Constructor initialize the class rectangle
+
+        Keyword Arguments:
+           width {int} -- width of the rectangle (default: {0})
+           height {int} -- height of the rectangle (default: {0})
         """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Get/set the width of the Rectangle."""
+        """Getter function of width
+
+        Returns:
+            int -- width fo the rectangle
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        if not isinstance(value, int):
+        """Setter function to width
+
+        Arguments:
+            value {int} -- [valeu of width]
+            
+        Raises:
+            TypeError: width must be an integer
+            ValueError: width must be >= 0
+        """
+        if type(value) != int:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
+
         self.__width = value
 
     @property
     def height(self):
-        """Get/set the height of the Rectangle."""
-        return self.__height
+        """Getter function to height
+        
+        returns:
+            int -- height of the rectangle
+            """
+            return self.__height
 
     @height.setter
     def height(self, value):
-        if not isinstance(value, int):
+        """Setter function os height
+
+        Arguments:
+            value {int} -- Value of height
+            
+        Raises:
+            TypeError: height must be an integer
+            ValueError: height must be >= 0
+        """
+        if type(value) != int:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
+
         self.__height = value
 
-    def area(self):
-        """Return the area of the Rectangle."""
-        return (self.__width * self.__height)
+        def area(self):
+            """Generate area of the rectangle
 
-    def perimeter(self):
-        """Return the perimeter of the Rectangle."""
-        if self.__width == 0 or self.__height == 0:
-            return (0)
-        return ((self.__width * 2) + (self.__height * 2))
-    def __str__(self):
-        """Return the printable representation of the Rectangle.
+            Returns:
+                Int -- total area of rectangle
+            """
+            return self.__width * self.__height
 
-        Represents the rectangle with the # character.
-        """
-        if self.__width == 0 or self.__height == 0:
-            return ("")
+        def perimeter(self):
+            """Find the perimeter of a rectangle
+            
+            Returns:
+                int -- total perimeter of the rectangle
+            """
+            if self.__width == 0 or self.__height == 0:
+                return 0
+            return 2 * (self.__height + self.__width)
 
-        rect = []
-        for i in range(self.__height):
-            [rect.append('#') for j in range(self.__width)]
-            if i != self.__height - 1:
-                rect.append("\n")
-            return ("".join(rect))
+        def __str__(self):
+            """Method that get string representation rectangle
+
+            Returns:
+                string -- string representation
+            """
+            string = ""
+            if self.__width == 0 or self.__height == 0:
+                return ""
+            for row in range(self.__height):
+                for col in range(self.__width):
+                    string = string + '#'
+                string = string + '\n'
+            return string[:-1]
