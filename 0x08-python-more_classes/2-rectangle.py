@@ -6,7 +6,7 @@ class Rectangle:
     """
     class that generate a rectangle
     """
-    def __init__(self, width=0, height=0):
+    def _init__(self, width=0, height=0):
         """Constructor initialize the class rectangle
 
         Keyword Arguments:
@@ -19,12 +19,12 @@ class Rectangle:
     @property
     def width(self):
         """Getter function of width
-        
+
         Returns:
             int -- width fo the rectangle
         """
         return self.__width
-
+    
     @width.setter
     def width(self, value):
         """Setter function to width
@@ -34,7 +34,7 @@ class Rectangle:
 
         Raises:
             TypeError: width must be an integer
-            ValueError: width must be >= 0
+            valueError: width must be >= 0
         """
         if type(value) != int:
             raise TypeError("width must be an integer")
@@ -61,7 +61,7 @@ class Rectangle:
 
         Raises:
             TypeError: height must be an integer
-            ValueError: height must be >= 0
+            valueError: height must be >= 0
         """
         if type(value) != int:
             raise TypeError("height must be an integer")
@@ -69,3 +69,21 @@ class Rectangle:
             raise ValueError("height must be >= 0")
 
         self.__height = value
+
+    def area(self):
+        """Generate area of the rectangle
+
+        Returns:
+            Int -- total area of rectangle
+        """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """Find the perimeter of a rectangle
+
+        Returns:
+            int -- total perimeter of the rectangle
+        """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return 2 * (self.__height + self.__width)
