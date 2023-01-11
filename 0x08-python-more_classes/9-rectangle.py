@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# 9-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -54,7 +53,7 @@ class Rectangle:
     def area(self):
         """Return the area of the Rectangle."""
         return (self.__width * self.__height)
-    
+
     def perimeter(self):
         """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
@@ -82,7 +81,7 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """Return a new Rectangle with width and height equal to size.
-        
+
         Args:
             size (int): The width and height of the new Rectangle.
         """
@@ -95,21 +94,21 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return ("")
-        
+
         rect = []
         for i in range(self.__height):
             [rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")
-            return ("".join(rect))
+        return ("".join(rect))
 
-        def __repr__(self):
-            """Return the string representation of the Rectangle."""
-            rect = "Rectangle(" + str(self.__width)
-            rect += ", " + str(self.__height) + ")"
-            return (rect)
+    def __repr__(self):
+        """Return the string representation of the Rectangle."""
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
 
-        def __del__(self):
-            """Print a message for every deletion of a Rectangle."""
-            type(self).number_of_instances -= 1
-            print("Bye rectangle...")
+    def __del__(self):
+        """Print a message for every deletion of a Rectangle."""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
