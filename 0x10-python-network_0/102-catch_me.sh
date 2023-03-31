@@ -1,3 +1,3 @@
 #!/bin/bash
-# PUT METHOD is allowed, we must follow redirections, we should come from HolbertonSchool and our userid should be user_id = 98
-curl -sLX PUT -H "origin: HolbertonSchool" -d "user_id=98" 0.0.0.0:5000/catch_me
+#  Bash script that makes a request to 0.0.0.0:5000/catch_me  response "You got me!"
+curl -sX PUT -L -d "user_id=98" --header "origin: HolbertonSchool" 0.0.0.0:5000/catch_me
